@@ -1,14 +1,12 @@
 <?php
 function getPDO(){
     $host ='localhost';
-    $port ='3308';
-    $db="personbmi";
+    $port ='3008';
+    $db="bmi-app";
     $user ='root';
-    $pass = 'adj2425';
-    $charset = 'utf8mb4';
+    $password="adj2425";
 
-    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
-
+    $dsn ="mysql:host=$host;port:$port; dbname:$db;";
     try{
         return new PDO($dsn,$user,$password ,[
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
