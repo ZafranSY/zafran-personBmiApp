@@ -11,12 +11,4 @@ interface PersonRepository {
     public function delete(int $id): bool;
 }
 
-use App\Domain\Person\PersonRepository;
-use App\Infrastructure\Persistence\Person\MySQLPersonRepository;
 
-$containerBuilder->addDefinitions([
-    PersonRepository::class => function () {
-        $pdo = getPDO(); // define this globally or in your settings
-        return new MySQLPersonRepository($pdo);
-    }
-]);

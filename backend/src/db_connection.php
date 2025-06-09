@@ -4,7 +4,7 @@ function getPDO(){
     $port ='3308';
     $db="personbmi";
     $user ='root';
-    $pass = 'adj2425';
+    $password = 'adj2425';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";

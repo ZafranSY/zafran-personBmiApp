@@ -26,8 +26,6 @@ return function (App $app) {
         $group->get('/{id}', ViewUserAction::class);
     });
     
-    $app->group('/person', function (Group $group) {
-        $group->get('', ListPersonsAction::class);
-        $group->get('/{id}', ViewUserAction::class);
-    });
+    $app->get('/person', \App\Application\Actions\Person\ListPersonsAction::class);
+
 };
