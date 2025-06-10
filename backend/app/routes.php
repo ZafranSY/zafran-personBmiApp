@@ -9,6 +9,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 use App\Application\Actions\person\ListPersonsAction;
+use App\Application\Actions\person\ListPersonById;
+use App\Application\Actions\person\CreateNewPerson;
+use App\Application\Actions\person\UpdatePerson;
+use App\Application\Actions\person\PatchPerson;
+use App\Application\Actions\person\DeletePerson;
 
 return function (App $app) {
     $app->options('/{routes:.*}', function (Request $request, Response $response) {
@@ -26,6 +31,12 @@ return function (App $app) {
         $group->get('/{id}', ViewUserAction::class);
     });
     
-    $app->get('/person', \App\Application\Actions\Person\ListPersonsAction::class);
-
+$app->group('/person', function (Group $group) {
+        $group->get('', ListPersonsAction::class);
+        $group->get('/{id}', ListPersonById::class);
+        $group->post('/create', CreateNewPerson::class);
+        $group->put('/update', UpdatePerson::class);
+        $group->patch('/{id}', PatchPerson::class);
+        $group->delete('/{id}', DeletePerson::class);
+    });    
 };

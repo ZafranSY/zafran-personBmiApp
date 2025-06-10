@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Actions\person;
+namespace App\Application\Actions\Person;
 
 use App\Application\Actions\Action;
-use App\Domain\person\PersonRepository;
+use App\Domain\Person\PersonRepository;
 use Psr\Log\LoggerInterface;
 
-abstract class personAction extends Actions
+abstract class PersonAction extends Action
 {
     protected PersonRepository $personRepository;
 
